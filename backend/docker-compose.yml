@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: ecodescarte-postgres
+    restart: always
+    environment:
+      # NOME DO BANCO DE DADOS (USADO NO application.properties)
+      POSTGRES_DB: ecodescarte_db
+
+      # CREDENCIAIS USADAS PELO SPRING BOOT
+      POSTGRES_USER: ecouser
+      POSTGRES_PASSWORD: ecopass
+
+    ports:
+      # Mapeia a porta 5432 do contêiner para a porta 5432 da sua máquina
+      - "5432:5432"
+
+    volumes:
+      # Armazena os dados do PostgreSQL de forma persistente
+      - ecodescarte_data:/var/lib/postgresql/data
+
+    networks:
+      - eco-network
+
+networks:
+  eco-network:
+    driver: bridge
+
+volumes:
+  ecodescarte_data:

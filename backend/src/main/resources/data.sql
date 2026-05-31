@@ -1,0 +1,15 @@
+INSERT INTO ponto_descarte (nome, endereco, latitude, longitude, residuos_aceitos) VALUES
+('Prefeitura do Município de Maringá', 'Avenida XV de Novembro, 701, Maringá', -23.42385, -51.93946, 'Sucatas eletrônicas'),
+('Supermercado Angeloni – Armazém', 'Av. Adv. Horácio Raccanello Filho, 5120, Maringá', -23.41823, -51.93063, 'Sucatas eletrônicas, Pilhas, Baterias'),
+('Estação de Reciclagem Maringá Park', 'Avenida São Paulo, 1099, Maringá', -23.42223, -51.93287, 'Sucatas eletrônicas, Pilhas, Baterias'),
+('Casas Bahia – Centro', 'Avenida Brasil, 3414, Maringá', -23.42042, -51.93540, 'Sucatas eletrônicas, Pilhas, Baterias'),
+('Atacadão Maringá', 'Rua Fernão Dias, 300, Maringá', -23.41851, -51.94672, 'Pilhas, Baterias'),
+('Tiro de Guerra de Maringá', 'Avenida Mandacaru, 730, Maringá', -23.40814, -51.95598, 'Sucatas eletrônicas'),
+('4º Batalhão de Polícia Militar', 'Rua Mitsuzo Taguchi, 99, Maringá', -23.42478, -51.90738, 'Sucatas eletrônicas'),
+('Câmara Municipal de Maringá', 'Avenida Papa João XXIII, 239, Maringá', -23.42772, -51.93788, 'Sucatas eletrônicas'),
+('Coopercanção', 'Avenida Vereador João Batista Sanches, 1234, Maringá', -23.45319, -51.99911, 'Sucatas eletrônicas'),
+('Faculdade Maringá', 'Avenida Prudente de Morais, 815, Maringá', -23.41628, -51.94096, 'Sucatas eletrônicas'),
+('UNIFAMMA - Fd. Metropolitana de Maringá', 'Av. Virgílio Manília, 22.260, Jardim Ouro Cola, Maringá', -23.41531, -51.99315, 'Sucatas eletrônicas'),
+('SESI Maringá', 'Rua Antônio Carniel, 499, Maringá', -23.42507, -51.95745, 'Sucatas eletrônicas'),
+('Casas Bahia – Zona 01', 'Avenida Brasil, 3300, Maringá', -23.42056, -51.93428, 'Sucatas eletrônicas, Pilhas, Baterias'),
+('Banco Sicoob Maringá (Av. Brasil)', 'Avenida Brasil, 2309, Maringá', -23.42385, -51.95866, 'Pilhas, Baterias');
