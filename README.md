@@ -104,11 +104,13 @@ ECO_2.0/
 │   │   │   └── resources/
 │   │   │       ├── application.properties
 │   │   │       └── data.sql
-│   │   └── test/
-│   │       └── java/com/ecodescarte/backend/
-│   │           ├── AgendamentoServiceTest.java
-│   │           ├── PontoDescarteServiceTest.java
-│   │           └── UsuarioServiceTest.java
+│   │   └── Pode adicionar sim, fica mais fiel ao projeto real. Atualiza só a parte da estrutura no README:
+│   └── test/
+│       └── java/com/ecodescarte/backend/
+│           ├── AgendamentoServiceTest.java
+│           ├── BackendApplicationTests.java
+│           ├── PontoDescarteServiceTest.java
+│           └── UsuarioServiceTest.java
 │   ├── docker-compose.yml
 │   └── pom.xml
 ├── css/
@@ -119,7 +121,7 @@ ECO_2.0/
 ├── agendamento.html
 ├── educacional.html
 └── impacto.html
-```
+
 
 ---
 
