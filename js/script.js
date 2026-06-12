@@ -1,18 +1,10 @@
-/**
- * script.js - EcoDescarte
- * Responsável pela lógica do mapa interativo, geolocalização,
- * agendamento de coleta e cálculo de impacto ambiental.
- */
 
 // Instância global do mapa Leaflet
 let map; 
 // Array de marcadores ativos no mapa
 let markers = []; 
 
-/**
- * Inicializa o mapa Leaflet centralizado em Maringá
- * e carrega os pontos de descarte via API REST do back-end.
- */
+
 function initMap() {
     if (!document.getElementById('map')) return;
 

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.ecodescarte.backend.BackendApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.02 s -- in com.ecodescarte.backend.BackendApplicationTests

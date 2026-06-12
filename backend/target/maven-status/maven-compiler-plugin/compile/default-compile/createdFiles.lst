@@ -1,0 +1,8 @@
+com\ecodescarte\backend\controller\PontoDescarteController.class
+com\ecodescarte\backend\exception\GlobalExceptionHandler.class
+com\ecodescarte\backend\model\PontoDescarte.class
+com\ecodescarte\backend\controller\AgendamentoController.class
+com\ecodescarte\backend\model\Agendamento.class
+com\ecodescarte\backend\BackendApplication.class
+com\ecodescarte\backend\repository\AgendamentoRepository.class
+com\ecodescarte\backend\repository\PontoDescarteRepository.class

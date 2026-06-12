@@ -9,58 +9,83 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Controller responsável por gerenciar os pontos de descarte de resíduos eletrônicos.
- * Expõe endpoints REST para listagem, busca e cadastro de pontos via API.
- */
 @RestController
 @RequestMapping("/api/pontos-descarte")
-@CrossOrigin(origins = "*", methods = {RequestMethod.GET, RequestMethod.POST})
+@CrossOrigin(origins = "*", methods = {
+        RequestMethod.GET,
+        RequestMethod.POST,
+        RequestMethod.PUT,
+        RequestMethod.DELETE
+})
 public class PontoDescarteController {
 
-    // Repositório injetado via construtor (boas práticas Spring)
     private final PontoDescarteRepository pontoDescarteRepository;
 
-    /**
-     * Construtor com injeção de dependência do repositório de pontos de descarte.
-     * @param pontoDescarteRepository repositório JPA para operações no banco de dados
-     */
     @Autowired
     public PontoDescarteController(PontoDescarteRepository pontoDescarteRepository) {
         this.pontoDescarteRepository = pontoDescarteRepository;
     }
 
-    /**
-     * Lista todos os pontos de descarte cadastrados no sistema.
-     * @return lista de pontos de descarte com HTTP 200 (OK)
-     */
+    // Listar todos os pontos
     @GetMapping
     public ResponseEntity<List<PontoDescarte>> listarTodos() {
-        List<PontoDescarte> pontos = pontoDescarteRepository.findAll();
-        return new ResponseEntity<>(pontos, HttpStatus.OK);
+        return ResponseEntity.ok(pontoDescarteRepository.findAll());
     }
 
-    /**
-     * Busca um ponto de descarte específico pelo seu ID.
-     * @param id identificador único do ponto de descarte
-     * @return ponto encontrado com HTTP 200, ou HTTP 404 se não existir
-     */
+    // Buscar ponto por ID
     @GetMapping("/{id}")
     public ResponseEntity<PontoDescarte> buscarPorId(@PathVariable Long id) {
+
         return pontoDescarteRepository.findById(id)
-                .map(ponto -> new ResponseEntity<>(ponto, HttpStatus.OK))
-                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
-    /**
-     * Cadastra um novo ponto de descarte no sistema.
-     * Útil para administração e expansão da rede de coleta.
-     * @param ponto objeto com os dados do ponto recebido no corpo da requisição
-     * @return ponto cadastrado com HTTP 201 (Created)
-     */
+    // Cadastrar ponto
     @PostMapping
-    public ResponseEntity<PontoDescarte> cadastrarPonto(@RequestBody PontoDescarte ponto) {
+    public ResponseEntity<PontoDescarte> cadastrarPonto(
+            @RequestBody PontoDescarte ponto) {
+
         PontoDescarte novoPonto = pontoDescarteRepository.save(ponto);
-        return new ResponseEntity<>(novoPonto, HttpStatus.CREATED);
+
+        return new ResponseEntity<>(
+                novoPonto,
+                HttpStatus.CREATED
+        );
+    }
+
+    // Atualizar ponto
+    @PutMapping("/{id}")
+    public ResponseEntity<PontoDescarte> atualizarPonto(
+            @PathVariable Long id,
+            @RequestBody PontoDescarte dados) {
+
+        return pontoDescarteRepository.findById(id)
+                .map(ponto -> {
+
+                    ponto.setNome(dados.getNome());
+                    ponto.setEndereco(dados.getEndereco());
+                    ponto.setLatitude(dados.getLatitude());
+                    ponto.setLongitude(dados.getLongitude());
+                    ponto.setResiduosAceitos(dados.getResiduosAceitos());
+
+                    return ResponseEntity.ok(
+                            pontoDescarteRepository.save(ponto)
+                    );
+                })
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    // Excluir ponto
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> excluirPonto(@PathVariable Long id) {
+
+        if (!pontoDescarteRepository.existsById(id)) {
+            return ResponseEntity.notFound().build();
+        }
+
+        pontoDescarteRepository.deleteById(id);
+
+        return ResponseEntity.noContent().build();
     }
 }
