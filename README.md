@@ -77,7 +77,7 @@ docker-compose up -d
 C:\apache-maven-3.9.16\bin\mvn.cmd spring-boot:run
 
 # 5. Acesse o front-end
-# https://mandy1804.github.io/ECO_2.0/
+https://mandy1804.github.io/ECO_2.0/
 ```
 
 ### Executar os testes
