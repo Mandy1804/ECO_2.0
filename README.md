@@ -29,7 +29,6 @@ O **EcoDescarte** é uma solução tecnológica desenvolvida como projeto interd
 
 - 📍 **Mapa Interativo** — Localização de pontos de descarte em Maringá com geolocalização real
 - 📅 **Agendamento de Coleta** — Solicitação de coleta domiciliar de resíduos eletrônicos
-- 👤 **Cadastro e Login** — Autenticação de usuários
 - 📚 **Educação Ambiental** — Conteúdos sobre descarte consciente
 - 🌿 **Calculadora de Impacto** — Estimativa de CO₂ evitado pelo descarte correto
 
@@ -75,7 +74,7 @@ cd ECO_2.0/backend
 docker-compose up -d
 
 # 4. Execute o back-end Spring Boot
-mvn spring-boot:run
+C:\apache-maven-3.9.16\bin\mvn.cmd spring-boot:run
 
 # 5. Acesse o front-end
 # https://mandy1804.github.io/ECO_2.0/
@@ -95,22 +94,21 @@ ECO_2.0/
 ├── backend/
 │   ├── src/
 │   │   ├── main/
-│   │   │   ├── java/com/ecodescarte/backend/
-│   │   │   │   ├── controller/
-│   │   │   │   ├── exception/
-│   │   │   │   ├── model/
-│   │   │   │   ├── repository/
-│   │   │   │   └── BackendApplication.java
-│   │   │   └── resources/
-│   │   │       ├── application.properties
-│   │   │       └── data.sql
-│   │   └── Pode adicionar sim, fica mais fiel ao projeto real. Atualiza só a parte da estrutura no README:
+│   │      ├── java/com/ecodescarte/backend/
+│   │      │   ├── controller/
+│   │      │   ├── exception/
+│   │      │   ├── model/
+│   │      │   ├── repository/
+│   │      │   └── BackendApplication.java
+│   │      └── resources/
+│   │          ├── application.properties
+│   │          └── data.sql
+│   │   
 │   └── test/
 │       └── java/com/ecodescarte/backend/
 │           ├── AgendamentoServiceTest.java
 │           ├── BackendApplicationTests.java
 │           ├── PontoDescarteServiceTest.java
-│           └── UsuarioServiceTest.java
 │   ├── docker-compose.yml
 │   └── pom.xml
 ├── css/
@@ -123,6 +121,24 @@ ECO_2.0/
 └── impacto.html
 
 ```
+---
+## 🔌 Endpoints da API
+
+### Pontos de Descarte
+
+| Método | Endpoint |
+|---------|----------|
+| GET | /api/pontos-descarte |
+| GET | /api/pontos-descarte/{id} |
+| POST | /api/pontos-descarte |
+
+### Agendamentos
+
+| Método | Endpoint |
+|---------|----------|
+| GET | /api/agendamentos |
+| POST | /api/agendamentos |
+
 ---
 
 ## 👥 Equipe
